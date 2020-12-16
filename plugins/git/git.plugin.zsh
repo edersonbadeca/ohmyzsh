@@ -88,6 +88,8 @@ alias gpristine='git reset --hard && git clean -dffx'
 alias gcm='git checkout $(git_main_branch)'
 alias gcd='git checkout develop'
 alias gcmsg='git commit -m'
+alias gcmst='git commit --template=template.txt'
+alias gcmst!='git commit --template=template.txt --no-verify'
 alias gco='git checkout'
 alias gcount='git shortlog -sn'
 alias gcp='git cherry-pick'
@@ -180,6 +182,7 @@ function push_force() {
 alias ggpur='ggu'
 alias ggpull='git pull origin "$(git_current_branch)"'
 alias ggpush='git push origin "$(git_current_branch)"'
+
 alias ggpush!='git push origin "$(git_current_branch)" --no-verify'
 alias ggpushn!=push_force
 
