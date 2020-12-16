@@ -143,9 +143,19 @@ function ggu() {
 }
 compdef _git ggu=git-checkout
 
+function push_force() {
+   echo -n "Do you really want to force push? (y/n)\n"
+   read answer
+   if [ "$answer" != "${answer#[Yy]}" ] ;then
+       git push origin "$(git_current_branch)" --no-verify --force
+   fi
+}
+
 alias ggpur='ggu'
 alias ggpull='git pull origin "$(git_current_branch)"'
 alias ggpush='git push origin "$(git_current_branch)"'
+alias ggpush!='git push origin "$(git_current_branch)" --no-verify'
+alias ggpushn!=push_force
 
 alias ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
